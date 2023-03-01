@@ -49,7 +49,15 @@ def formulaire(request):
             predicted_price = model.predict(data)[0]
 
             # Formatte le prix avec des séparateurs de milliers
-            formatted_price = intcomma(int(predicted_price))
+            # formatted_price = intcomma(int(predicted_price))
+
+            # Formatte le prix avec des séparateurs de milliers et pas de chiffre après la virgule
+            formatted_price = '{:,.0f}'.format(predicted_price).replace(',', " ")
+            #  {:,.0f}  -->   : : commence la spécification de formatage
+            # , : insère un séparateur de milliers
+            # .0 : spécifie que le nombre ne doit pas avoir de chiffre après la virgule
+            # f : indique que le nombre doit être formaté comme un nombre décimal avec un nombre fixe de chiffres après la virgule
+
 
             # Affiche la page de résultat avec la prédiction
             return render(request, 'prix_maison/prediction_result.html', {'predicted_price': formatted_price})
