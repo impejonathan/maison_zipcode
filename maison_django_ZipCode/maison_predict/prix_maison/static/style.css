@@ -1,0 +1,25 @@
+/* Définir l'image de fond */
+body {
+    background-image: url(img/maison.jpg);
+    background-size: cover; /* Ajuster la taille de l'image pour remplir l'arrière-plan */
+  }
+  
+  /* Appliquer une opacité à l'image de fond */
+  body::before {
+    content: "";
+    display: block;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.5; /* Modifier cette valeur pour ajuster l'opacité */
+    background-color: white; /* Changer cette couleur pour ajuster la couleur de l'opacité */
+  }
+  
+
+.bg-light{
+    opacity: 0.90; /* Modifier cette valeur pour ajuster l'opacité */
+
+}
